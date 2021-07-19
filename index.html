@@ -5,13 +5,14 @@
     <title>Socket App</title>
 </head>
 <body>
-    <h1>Bismillah</h1>
+    <h1 id="my-time"></h1>
 
 <script src="/socket.io/socket.io.js"></script>
 <script>
     let socket = io();
     socket.on('message', (msg) => {
-        document.write(msg);
+        document.getElementById('my-time').innerHTML = '';
+        document.getElementById('my-time').innerHTML = msg;
     });
 </script>
 </body>
