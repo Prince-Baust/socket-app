@@ -5,19 +5,34 @@
     <title>Socket App</title>
 </head>
 <body>
-    <h1 id="my-time"></h1>
+<!--    <h1 id="my-time"></h1>         Created for custom and built-in event demonstration -->
+
+
+<input type="text" id="name">
+<button onclick="send()">Submit</button>
+
+
+
+
+
+
 
 <script src="/socket.io/socket.io.js"></script>
 <script>
     let socket = io();
-    // socket.on('message', (msg) => {
+    // socket.on('message', (msg) => {                               // Receriving data from built-in message event
     //     document.getElementById('my-time').innerHTML = '';
     //     document.getElementById('my-time').innerHTML = msg;
     // });
-    socket.on('myEvent', (msg)=> {
-        document.getElementById('my-time').innerHTML = '';
-        document.getElementById('my-time').innerHTML = msg;
-    })
+    // socket.on('myEvent', (msg)=> {                                   // Receiving data from custom event
+    //     document.getElementById('my-time').innerHTML = '';
+    //     document.getElementById('my-time').innerHTML = msg;
+    // })
+
+    function send() {
+        let name = document.getElementById('name').value;
+        socket.send(name);
+    }
 </script>
 </body>
 </html>
