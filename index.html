@@ -10,10 +10,14 @@
 <script src="/socket.io/socket.io.js"></script>
 <script>
     let socket = io();
-    socket.on('message', (msg) => {
+    // socket.on('message', (msg) => {
+    //     document.getElementById('my-time').innerHTML = '';
+    //     document.getElementById('my-time').innerHTML = msg;
+    // });
+    socket.on('myEvent', (msg)=> {
         document.getElementById('my-time').innerHTML = '';
         document.getElementById('my-time').innerHTML = msg;
-    });
+    })
 </script>
 </body>
 </html>
