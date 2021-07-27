@@ -1,14 +1,12 @@
 const express = require('express');
 const app = express();
-const http = require('http');
-const expressServer = http.createServer(app);
-const {Server} = require('socket.io');
-const io = new Server(expressServer);
+const expressServer = require('http').createServer(app);
+const io = require('socket.io')(expressServer);
 
-io.on('connection', (socket) => {
+io.on('connection', socket => {
     console.log('New user connected.');  // Log when user connects to localhost:3000
 
-    socket.on('message', (msg) => {
+    socket.on('message', msg => {
         console.log(msg);
     });
 
